@@ -40,7 +40,7 @@ const PokemonList = () => {
 
   return (
     <div>
-      <h1>Random Pokémon</h1>
+      <h1>Random Pokémon Generator</h1>
       {
         <main>
           {pokemon.map((p) => (
@@ -49,7 +49,7 @@ const PokemonList = () => {
                 <img src={p.sprites.front_default} alt={p.name} />
                 <h2>{p.name}</h2>
                 <p>
-                  type:{' '}
+                  type:
                   {p.types.map((t) => (
                     <span>{t.type.name}</span>
                   ))}
