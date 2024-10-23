@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Loading from '../images/pica.gif';
+import './PokemonList.css';
 
 const PokemonList = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -12,7 +13,7 @@ const PokemonList = () => {
       try {
         // Generate three random Pokémon IDs
         const pokemonIds = Array.from(
-          { length: 3 },
+          { length: 6 },
           () => Math.floor(Math.random() * 1025) + 1
         );
         const pokemonData = await Promise.all(
@@ -45,8 +46,14 @@ const PokemonList = () => {
           {pokemon.map((p) => (
             <>
               <article>
-                <h2>{p.name}</h2>
                 <img src={p.sprites.front_default} alt={p.name} />
+                <h2>{p.name}</h2>
+                <p>
+                  type:{' '}
+                  {p.types.map((t) => (
+                    <span>{t.type.name}</span>
+                  ))}
+                </p>
               </article>
             </>
           ))}
