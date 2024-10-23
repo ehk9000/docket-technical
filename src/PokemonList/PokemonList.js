@@ -34,14 +34,13 @@ const PokemonList = () => {
     fetchPokemon();
   }, []);
 
+  if (loading) return <img src={Loading} alt="Loading Pica" />;
+  if (error) return <div>{error}</div>;
+
   return (
     <div>
       <h1>Random Pokémon</h1>
-      {loading ? (
-        <>
-          <img src={Loading} alt="Loading Pica" />
-        </>
-      ) : (
+      {
         <main>
           {pokemon.map((p) => (
             <>
@@ -52,7 +51,7 @@ const PokemonList = () => {
             </>
           ))}
         </main>
-      )}
+      }
     </div>
   );
 };
