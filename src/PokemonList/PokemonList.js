@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Loading from '../images/pica.gif';
 
 const PokemonList = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -36,16 +37,22 @@ const PokemonList = () => {
   return (
     <div>
       <h1>Random Pokémon</h1>
-      <main>
-        {pokemon.map((p) => (
-          <>
-            <article>
-              <h2>{p.name}</h2>
-              <img src={p.sprites.front_default} alt={p.name} />
-            </article>
-          </>
-        ))}
-      </main>
+      {loading ? (
+        <>
+          <img src={Loading} alt="Loading Pica" />
+        </>
+      ) : (
+        <main>
+          {pokemon.map((p) => (
+            <>
+              <article>
+                <h2>{p.name}</h2>
+                <img src={p.sprites.front_default} alt={p.name} />
+              </article>
+            </>
+          ))}
+        </main>
+      )}
     </div>
   );
 };
