@@ -13,7 +13,7 @@ const PokemonList = () => {
       try {
         // Generate three random Pokémon IDs
         const pokemonIds = Array.from(
-          { length: 6 },
+          { length: 3 },
           () => Math.floor(Math.random() * 1025) + 1
         );
         const pokemonData = await Promise.all(
