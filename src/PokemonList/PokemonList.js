@@ -35,7 +35,7 @@ const PokemonList = () => {
     fetchPokemon();
   }, []);
 
-  if (loading) return <img src={Loading} alt="Loading Pica" />;
+  if (loading) return <img src={Loading} alt="Loading Pikachu" />;
   if (error) return <div>{error}</div>;
 
   return (

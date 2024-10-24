@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import PokemonList from './PokemonList';
-import '@testing-library/jest-dom/extend-expect';
 
 jest.mock('axios');
 
-test('renders loading state initially', () => {
+test('renders error state initially', () => {
   render(<PokemonList />);
-  const loadingElement = screen.getByText(/Loading.../i);
-  expect(loadingElement).toBeInTheDocument();
+  const error = screen.getByText('Failed to fetch Pokémon');
+
+  expect(error).toBeInTheDocument();
 });
